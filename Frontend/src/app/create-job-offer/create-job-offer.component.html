@@ -29,11 +29,11 @@
           </span>
           <select class="form-select" name="salaryMin"  #salaryMin="ngModel" [(ngModel)] = "jobOfferModel.salaryMin" required>
             <option value="1000">1000</option>
-            <option value="2000">5000</option>
-            <option value="5000">10000</option>
-            <option value="7000">15000</option>
-            <option value="10000">20000</option>
-            <option value="15000">25000</option>
+            <option value="5000">5000</option>
+            <option value="10000">10000</option>
+            <option value="15000">15000</option>
+            <option value="20000">20000</option>
+            <option value="25000">25000</option>
           </select>
         </div>
         <div class="col-12 col-md-3">
@@ -42,13 +42,12 @@
             {{validationMessages.required}}
           </span>
           <select class="form-select" name="salaryMax"  #salaryMax="ngModel" [(ngModel)] = "jobOfferModel.salaryMax" required>
-            <option value="1000">1000</option>
             <option value="5000">5000</option>
             <option value="10000">10000</option>
             <option value="15000">15000</option>
             <option value="20000">20000</option>
-            <option value="20000">25000</option>
-            <option value="20000">30000</option>
+            <option value="25000">25000</option>
+            <option value="30000">30000</option>
           </select>
         </div>
         <div class="col-12 col-md-6">
