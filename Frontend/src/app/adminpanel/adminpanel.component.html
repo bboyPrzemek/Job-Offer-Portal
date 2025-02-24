@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <navigation></navigation>
+    <div class="panel-wrapper">
+        <div class="left-panel">
+            <ul class="list-group">
+                <li [ngClass]="{'active' : currentRoute === 'settings'}" class="list-item"  [routerLink]="['settings']">Account Settings</li>
+                <li [ngClass]="{'active' : currentRoute === 'manage'}" class="list-item" [routerLink]="['manage']">Manage Job Offers</li>
+                <li [ngClass]="{'active' : currentRoute === 'create'}" class="list-item" [routerLink]="['create']">Create Offer</li>
+                <li class="list-item">Archived</li>
+                <li class="list-item">Candidates</li>
+                <li class="list-item">Inbox</li>
+                <li class="list-item">Statistics</li>
+                <li class="list-item" id="logout" (click)="logout()">Logout</li>
+              </ul>
+        </div>
+        <div class="main-panel">
+          <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

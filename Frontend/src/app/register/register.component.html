@@ -1,0 +1,29 @@
+<div class="main">
+  <navigation></navigation>
+<div class="wrapper">
+  <div class="registration-container">
+    <div>
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="input-container form-group">
+          <label for="displayName">Display Name</label>
+          <input [(ngModel)]="displayName" name="displayName" id="displayName" class="form-control" type="text">
+        </div>
+        <div class="input-container form-group">
+          <label for="email">Email address</label>
+          <input [(ngModel)]="email" name="email" id="email" class="form-control" type="email">
+        </div>
+        <div class="input-container form-group">
+          <label for="password">Password</label>
+          <input [(ngModel)]="password" name="password" id="password" class="form-control" type="password">
+        </div>
+        <div class="input-container form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input [(ngModel)]="confirmPassword" name="confirmPassword" id="confirmPassword" class="form-control"
+            type="password">
+        </div>
+        <input type="Submit" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,125 @@
+<div class="main">
+  <div class="wrapper">
+    <navigation></navigation>
+    <div class="header-container">
+      <div class="header">
+        <h1>IT Job board </h1>
+        <h5>Know more, choose better</h5>
+      </div>
+    </div>
+    <div class="form-container">
+
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="filters-container">
+        <div class="filters">
+          <div class="filter">
+            <input type="text" [(ngModel)]="searchModel.title" name="title" class="form-control h50" placeholder="Search" id="searchInput">
+          </div>
+          <div class="filter">
+            <select class="form-select h50" [(ngModel)]="searchModel.city" name="city">
+              <option value="">All</option>
+              <option value="Koszalin">Koszalin</option>
+              <option value="Warszawa">Warszawa</option>
+              <option value="Poznań">Poznań</option>
+              <option value="Kraków">Kraków</option>
+              <option value="Lublin">Lublin</option>
+              <option value="Gdańsk">Gdańsk</option>
+              <option value="Wrocław">Wrocław</option>
+            </select>
+          </div>
+          <div class="filter">
+            <button type="button" class="btn btn-outline-light h50" (click)="showFilters()">Filters</button>
+          </div>
+          <div class="filter">
+            <button type="submit" class="btn btn-warning h50">Search</button>
+          </div>
+        </div>
+        <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" [ngClass]="visibility">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <label for="technology">Technology</label>
+                  <select class="form-select" id="technology" [(ngModel)]="searchModel.technology" name="tech">
+                    <option value="">All</option>
+                    <option value="Java">Java</option>
+                    <option value="Salesforce">Salesforce</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="experience">Experience</label>
+                  <select class="form-select" id="experience" [(ngModel)]="searchModel.experience" name="exp">
+                    <option value="">All</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Mid">Mid</option>
+                    <option value="Senior">Senior</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="work_type">Work type</label>
+                  <select class="form-select" id="work_type" [(ngModel)]="searchModel.worktype" name="worktype">
+                    <option value="">All</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Office">Office</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="position">Position</label>
+                  <select class="form-select" id="position" [(ngModel)]="searchModel.position" name="pos">
+                    <option value="">All</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Fullstack">Fullstack</option>
+                  </select>
+                </div>
+                <div class="flex">
+                  <div>
+                    <label style="display:block;">Salary min:</label>
+                    <input class="form-control" value="0" type="number" [(ngModel)]="searchModel.salaryMin"
+                      name="salaryMin">
+                  </div>
+
+                  <div>
+                    <label style="display:block;">Salary max:</label>
+                    <input class="form-control" type="number" min="1" [(ngModel)]="searchModel.salaryMax"
+                      name="salaryMax">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" (click)="close()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" (click)="close()" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+    <div class="sort-container">
+     <h6>Oferty pracy IT  <span>[{{jobOffers.totalRecords}} offers in total]</span></h6>
+      <select class="form-select" name="sort" [(ngModel)]="sort" (change)="onSort()">
+        <option value="">Default</option>
+        <option value="createdDate_desc">Latest</option>
+        <option value="salaryMin_desc">Highest Salary</option>
+      </select>
+    </div>
+
+    <div class="offers">
+      <jobofferlist [jobOffers]="jobOffers.jobOffers"></jobofferlist>
+    </div>
+
+
+    <div class="pagination">
+      <div class="paging-container">
+
+        <button class="btn btn-light" [routerLink]="['']" [queryParams]="{page: jobOffers.currentPage - 1}"  queryParamsHandling="merge" ><</button>
+        <span>{{jobOffers.currentPage}} of {{jobOffers.pages}}</span>
+        <button class="btn btn-light" [routerLink]="['']" [queryParams]="{page: jobOffers.currentPage + 1}" queryParamsHandling="merge">></button>
+      </div>
+    </div>
+  </div>

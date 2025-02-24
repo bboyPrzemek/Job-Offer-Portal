@@ -1,0 +1,70 @@
+.offer-container{
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.offer-container{
+    display: flex;
+}
+
+.left-side{
+    width: 70%;
+    padding: 0 10px 0 0;
+}
+
+.right-side{
+    width: 30%;
+    padding: 0 0 0 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.title-container{
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+}
+
+.info-container{
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.details-container{
+    margin-top: 20px;
+    background-color: white;
+}
+
+.detail-title{
+    color:grey;
+}
+
+button{
+    width: 100%;
+}
+.detail-title{
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.detail img{
+   width: 20px;
+   margin-right: 10px;
+}
+
+.detail span{
+    align-self: center;
+}
+
+.detail-value{
+    font-size: 14px;
+}
+
+.detail{
+    margin-top:10px;
+    display: flex;
+}

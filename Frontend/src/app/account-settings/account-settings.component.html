@@ -1,0 +1,38 @@
+<div>
+  <div class="header-section">
+    <div class="title">
+      <h5>Account Settings</h5>
+    </div>
+  </div>
+  <form>
+    <div class="logo-container row">
+      <div class="logo-wrapper">
+        <img src="/assets/images/logoplaceholder.jpg">
+        <input type="file" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <label for="username">Display Name</label>
+        <input type="text" value={{userInfo.displayName}} name="username" id="username" class="form-control">
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="email">Email Address</label>
+        <input type="email" value={{userInfo.email}} name="email" id="email" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <label for="username">Password</label>
+        <input type="password" placeholder="*************" name="username" id="username" class="form-control">
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="username">Confirm Password:</label>
+        <input type="password" placeholder="*************" name="username" id="username" class="form-control">
+      </div>
+    </div>
+    <div class="footer">
+      <input type="submit" value="Save" id="save" class="btn btn-primary login-btn">
+    </div>
+  </form>
+</div>

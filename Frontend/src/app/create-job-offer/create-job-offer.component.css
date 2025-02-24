@@ -1,0 +1,45 @@
+.input-group{
+    display: flex;
+}
+
+.title{
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.header-section{
+    margin-bottom: 10px;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-wrapper{
+    width: 250px;
+}
+
+.logo-wrapper img{
+    border-radius: 130px;
+}
+
+.logo-container{
+    justify-content: center;
+    margin:50px 0;
+}
+
+.footer{
+    padding: 5px 0;
+    margin: 20px 0;
+    border-top: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+input[type=submit]{
+    width: 100%;
+}
+
+.required::after{
+    content : "*";
+    color: red;
+}

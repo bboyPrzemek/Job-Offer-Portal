@@ -1,0 +1,73 @@
+<div>
+  <div class="main">
+    <div class="wrapper">
+      <navigation></navigation>
+      <div class="offer-container">
+        <div class="left-side">
+          <div class="title-container">
+            <div class="title">
+              <h6>{{result.user.displayName}}</h6>
+              <h5>{{result.title}}</h5>
+            </div>
+          </div>
+          <div class="info-container">
+            <span>What you will do...</span>
+            <div>
+              <pre>{{result.details}}</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-side">
+          <div>
+            <button class="btn btn-info">Apply</button>
+          </div>
+          <div class="details-container">
+            <div class="detail">
+              <span><img src="assets/images/icons/money.png"></span>
+              <div class="flex">
+                <div class="detail-title">Salary:</div>
+                <div class="detail-value">{{result.salaryMin}}zł - {{result.salaryMax}}zł</div>
+              </div>
+
+            </div>
+            <div class="detail">
+              <span><img src="assets/images/icons/star.png"></span>
+              <div class="flex">
+                <div class="detail-title">Experience:</div>
+                <div *ngFor="let e of result.experiences">
+                  <div class="detail-value">{{e.name}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="detail">
+              <span><img src="assets/images/icons/web-design.png"></span>
+              <div class="flex">
+                <div class="detail-title">Position:</div>
+                <div class="detail-value">{{result.position.name}}</div>
+              </div>
+            </div>
+            <div class="detail">
+              <span><img src="assets/images/icons/briefcase.png"></span>
+              <div class="flex">
+                <div class="detail-title">Worktype:</div>
+                <div *ngFor="let wt of result.worktypes">
+                  <div class="detail-value">{{wt.name}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="detail">
+                <span><img src="assets/images/icons/location-ico.svg"></span>
+                <div class="flex">
+                    <div class="detail-title">Location:</div>
+                    <div class="detail-value">{{result.location.city}}</div>
+                </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
