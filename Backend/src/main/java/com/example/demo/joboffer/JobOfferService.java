@@ -57,26 +57,7 @@ public class JobOfferService {
 		JobOfferDTO pagedJobOffers =  jobOfferRepository.findJobOffers(jobOfferSearchCriteria);
 		
 		for (JobOffer jobOffer :pagedJobOffers.getJobOffers()) {
-			jobOffer.setExperiences(
-					jobOffer
-					.getExperiences()
-					.stream()
-					.sorted(Comparator.comparing(Experience::getId))
-					.collect(Collectors.toCollection(LinkedHashSet::new)));
-			
-			jobOffer.setTechnologies(
-					jobOffer
-					.getTechnologies()
-					.stream()
-					.sorted(Comparator.comparing(Technology::getId))
-					.collect(Collectors.toCollection(LinkedHashSet::new)));
-			
-			jobOffer.setWorktypes(
-					jobOffer
-					.getWorktypes()
-					.stream()
-					.sorted(Comparator.comparing(Worktype::getId))
-					.collect(Collectors.toCollection(LinkedHashSet::new)));
+			sortCollections(jobOffer);
 		}
 		
 		Map<Long, JobOffer> jobOfferMap = new LinkedHashMap<>();
@@ -92,7 +73,9 @@ public class JobOfferService {
 	}
 	
 	public JobOffer findJobOfferById(Long Id){
-		return jobOfferRepository.findJobOfferById(Id);
+		JobOffer jobOffer = jobOfferRepository.findJobOfferById(Id);
+		jobOffer = sortCollections(jobOffer);
+		return jobOffer;
 	}
 	
 	public List<JobOffer> getOffersByUserId(){
@@ -152,4 +135,29 @@ public class JobOfferService {
 	public void removeJobOffer(){
 		
 	}
+	
+	public JobOffer sortCollections(JobOffer jobOffer) {
+		jobOffer.setExperiences(
+				jobOffer
+				.getExperiences()
+				.stream()
+				.sorted(Comparator.comparing(Experience::getId))
+				.collect(Collectors.toCollection(LinkedHashSet::new)));
+		
+		jobOffer.setTechnologies(
+				jobOffer
+				.getTechnologies()
+				.stream()
+				.sorted(Comparator.comparing(Technology::getId))
+				.collect(Collectors.toCollection(LinkedHashSet::new)));
+		
+		jobOffer.setWorktypes(
+				jobOffer
+				.getWorktypes()
+				.stream()
+				.sorted(Comparator.comparing(Worktype::getId))
+				.collect(Collectors.toCollection(LinkedHashSet::new)));
+		return jobOffer;
+	}
+	
 }
