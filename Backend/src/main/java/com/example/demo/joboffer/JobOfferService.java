@@ -2,7 +2,10 @@ package com.example.demo.joboffer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -51,18 +54,40 @@ public class JobOfferService {
 	}
 	
 	public JobOfferDTO searchOffers(JobOfferSearchCriteria jobOfferSearchCriteria){
-		PagedList<JobOffer> pagedJobOffers =  jobOfferRepository.findJobOffers(jobOfferSearchCriteria);
+		JobOfferDTO pagedJobOffers =  jobOfferRepository.findJobOffers(jobOfferSearchCriteria);
 		
+		for (JobOffer jobOffer :pagedJobOffers.getJobOffers()) {
+			jobOffer.setExperiences(
+					jobOffer
+					.getExperiences()
+					.stream()
+					.sorted(Comparator.comparing(Experience::getId))
+					.collect(Collectors.toCollection(LinkedHashSet::new)));
+			
+			jobOffer.setTechnologies(
+					jobOffer
+					.getTechnologies()
+					.stream()
+					.sorted(Comparator.comparing(Technology::getId))
+					.collect(Collectors.toCollection(LinkedHashSet::new)));
+			
+			jobOffer.setWorktypes(
+					jobOffer
+					.getWorktypes()
+					.stream()
+					.sorted(Comparator.comparing(Worktype::getId))
+					.collect(Collectors.toCollection(LinkedHashSet::new)));
+		}
 		
-		Map<Long, JobOffer> jo = new LinkedHashMap<>();
-		pagedJobOffers.forEach(p -> jo.put(p.getId(), p));
-		List<JobOffer> pagedOffers = new ArrayList<>(jo.values());
+		Map<Long, JobOffer> jobOfferMap = new LinkedHashMap<>();
+		pagedJobOffers.getJobOffers().forEach(p -> jobOfferMap.put(p.getId(), p));
+		List<JobOffer> pagedOffers = new ArrayList<>(jobOfferMap.values());
 		
 		return new JobOfferDTO(
 				pagedOffers,
-				pagedJobOffers.getPage(), 
-				pagedJobOffers.getTotalPages(),
-				pagedJobOffers.getTotalSize());
+				pagedJobOffers.getCurrentPage(), 
+				pagedJobOffers.getPages(),
+				pagedJobOffers.getTotalRecords());
 		
 	}
 	

@@ -117,9 +117,9 @@
     <div class="pagination">
       <div class="paging-container">
 
-        <button class="btn btn-light" [routerLink]="['']" [queryParams]="{page: jobOffers.currentPage - 1}"  queryParamsHandling="merge" ><</button>
+        <button class="btn btn-light" [disabled]="(jobOffers.currentPage <=1)" [routerLink]="['']" [queryParams]="{page: jobOffers.currentPage - 1}"  queryParamsHandling="merge" ><</button>
         <span>{{jobOffers.currentPage}} of {{jobOffers.pages}}</span>
-        <button class="btn btn-light" [routerLink]="['']" [queryParams]="{page: jobOffers.currentPage + 1}" queryParamsHandling="merge">></button>
+        <button class="btn btn-light"  [disabled]="(jobOffers.currentPage >= jobOffers.pages)" [routerLink]="['']" [queryParams]="{page: jobOffers.currentPage + 1}" queryParamsHandling="merge">></button>
       </div>
     </div>
   </div>
