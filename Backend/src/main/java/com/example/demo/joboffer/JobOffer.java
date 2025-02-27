@@ -2,7 +2,6 @@ package com.example.demo.joboffer;
 
 import java.util.Date;
 import java.util.Set;
-
 import com.example.demo.experience.Experience;
 import com.example.demo.location.Location;
 import com.example.demo.position.Position;
@@ -10,7 +9,6 @@ import com.example.demo.technology.Technology;
 import com.example.demo.user.User;
 import com.example.demo.worktype.Worktype;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -96,5 +94,4 @@ public class JobOffer {
 		return "JobOffer [Id=" + Id + ", title=" + title + ", details=" + details + ", salaryMin=" + salaryMin
 				+ ", salaryMax=" + salaryMax + ", user=" + user + ", location=" + location + "]";
 	}
-	
 }

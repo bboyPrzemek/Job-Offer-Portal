@@ -20,7 +20,6 @@ public class JobOfferSearchCriteria {
 	private String orderBy;
 	private int page;
 	
-	
 	@Override
 	public String toString() {
 		return "JobOfferSearchCriteria [title=" + title + ", city=" + city + ", salaryMin=" + salaryMin + ", salaryMax="

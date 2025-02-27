@@ -12,5 +12,4 @@ public class LocationService {
 	public Location findLocationByCity(String city) {
 		return locationRepository.findByCity(city);
 	}
-
 }

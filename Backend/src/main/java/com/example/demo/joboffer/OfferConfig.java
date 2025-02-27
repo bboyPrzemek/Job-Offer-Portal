@@ -4,12 +4,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import com.blazebit.persistence.Criteria;
 import com.blazebit.persistence.CriteriaBuilderFactory;
 import com.blazebit.persistence.spi.CriteriaBuilderConfiguration;
@@ -26,13 +24,10 @@ import com.example.demo.user.User;
 import com.example.demo.user.UserService;
 import com.example.demo.worktype.Worktype;
 import com.example.demo.worktype.WorktypeRepository;
-
 import jakarta.persistence.EntityManagerFactory;
 
 @Configuration
-
 public class OfferConfig {
-	
 	
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;
@@ -46,7 +41,6 @@ public class OfferConfig {
 	@Bean
 	CommandLineRunner commandLineRunner(
 			JobOfferRepository jobOfferRepository, 
-			//UserRepository userRepository,
 			UserService userService,
 			LocationRepository locationRepository, 
 			ExperienceRepository experienceRepository,
@@ -76,7 +70,6 @@ public class OfferConfig {
 			
 			Position position3 = new Position("Fullstack");
 			positionRepository.save(position3);
-			
 			
 			Experience exp = new Experience("Mid");
 			Set<Experience> eset = new HashSet<>();
@@ -131,8 +124,6 @@ public class OfferConfig {
 				jobOfferRepository.save(j2);
 			}
 			
-			
-			
 			Location l2 = new Location("Warszawa");
 			Location l3 = new Location("Gdańsk");
 			Location l4 = new Location("Kraków");
@@ -144,7 +135,4 @@ public class OfferConfig {
 			locationRepository.save(l5);
 		};
 	}
-		
-
-
 }

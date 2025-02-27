@@ -21,5 +21,4 @@ public class Worktype {
 	public Worktype(String name) {
 		this.name = name;
 	}
-
 }

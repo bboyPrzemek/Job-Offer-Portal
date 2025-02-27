@@ -19,7 +19,4 @@ public interface JobOfferRepository extends JpaRepository<JobOffer, Long>, JobOf
 			+ "left join fetch j.position pos "
 			+ "left join fetch j.worktypes wt")
 	List<JobOffer> findAll();
-	
-	
-	
 }

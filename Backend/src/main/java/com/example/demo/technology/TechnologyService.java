@@ -13,7 +13,6 @@ public class TechnologyService {
 	@Autowired
 	private TechnologyRepository technologyRepository;
 	
-	
 	public Set<Technology> searchTechnologyWhereNameIn(List<String> technologies){
 		return technologyRepository.findByNameIn(technologies);
 	}

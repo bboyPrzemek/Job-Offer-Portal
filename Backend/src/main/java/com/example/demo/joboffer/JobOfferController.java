@@ -1,8 +1,6 @@
 package com.example.demo.joboffer;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +19,6 @@ public class JobOfferController {
 	@Autowired
 	private JobOfferService jobOfferService;
 	
-	
 	@CrossOrigin
 	@GetMapping
 	public JobOfferDTO searchData(JobOfferSearchCriteria jobOfferSearchCriteria){
@@ -29,7 +26,7 @@ public class JobOfferController {
 	}
 	
 	@CrossOrigin
-	@GetMapping("/s")
+	@GetMapping("/userOffers")
 	public List<JobOffer> searchData(){
 		return jobOfferService.getOffersByUserId();
 	}

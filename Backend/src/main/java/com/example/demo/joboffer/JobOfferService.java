@@ -2,20 +2,15 @@ package com.example.demo.joboffer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.blazebit.persistence.PagedList;
 import com.example.demo.experience.Experience;
 import com.example.demo.experience.ExperienceService;
 import com.example.demo.location.Location;
@@ -69,8 +64,7 @@ public class JobOfferService {
 				pagedJobOffers.getCurrentPage(), 
 				pagedJobOffers.getPages(),
 				pagedJobOffers.getTotalRecords());
-		
-	}
+		}
 	
 	public JobOffer findJobOfferById(Long Id){
 		JobOffer jobOffer = jobOfferRepository.findJobOfferById(Id);
@@ -127,9 +121,8 @@ public class JobOfferService {
 		jobOffer.setTitle(title);
 		jobOffer.setDetails(details);
 		
-		JobOffer j = jobOfferRepository.save(jobOffer);
-		
-		return j;
+		JobOffer savedJobOffer = jobOfferRepository.save(jobOffer);
+		return savedJobOffer;
 	}
 	
 	public void removeJobOffer(){
@@ -159,5 +152,4 @@ public class JobOfferService {
 				.collect(Collectors.toCollection(LinkedHashSet::new)));
 		return jobOffer;
 	}
-	
 }

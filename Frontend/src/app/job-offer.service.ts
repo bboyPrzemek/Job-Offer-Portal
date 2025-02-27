@@ -11,7 +11,7 @@ export class JobOfferService {
   constructor(private http: HttpClient) {}
 
   getJobOffers(){
-    return this.http.get<any>(this.url + "s", {withCredentials : true});
+    return this.http.get<any>(this.url + "userOffers", {withCredentials : true});
   }
 
   searchOffers(queryParams ?: String){

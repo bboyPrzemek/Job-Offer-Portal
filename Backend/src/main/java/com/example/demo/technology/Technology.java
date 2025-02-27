@@ -19,10 +19,6 @@ public class Technology {
 	private Long Id;
 	private String name;
 	
-	
-	
-	
-	
 	public Technology(String name) {
 		this.name = name;
 	}

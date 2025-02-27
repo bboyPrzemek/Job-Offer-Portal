@@ -13,10 +13,8 @@ import com.example.demo.user.UserService;
 @RestController
 public class RegistrationController {
 	
-	
 	@Autowired
 	private UserService userService;
-	
 	
 	@PostMapping("/register")
 	public ResponseEntity<String> register(@RequestBody RegisterUserDTO registerUserDTO) {

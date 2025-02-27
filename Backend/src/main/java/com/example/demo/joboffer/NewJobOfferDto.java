@@ -1,8 +1,6 @@
 package com.example.demo.joboffer;
 
-
 import org.hibernate.validator.constraints.NotBlank;
-
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -10,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @NoArgsConstructor
 @Setter
@@ -54,6 +51,7 @@ public class NewJobOfferDto {
 		private String id;
 		private String value;
 	}
+
 	@AllArgsConstructor
 	@NoArgsConstructor
 	@Getter
@@ -63,14 +61,10 @@ public class NewJobOfferDto {
 		private String value;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "NewJobOfferDto [title=" + title + ", details=" + details + ", location=" + location + ", experiences="
 				+ experiences + ", position=" + position + ", technologies=" + technologies + ", worktypes="
 				+ worktypes + "]";
 	}
-	
-
-	
 }

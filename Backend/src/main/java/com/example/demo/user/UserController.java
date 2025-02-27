@@ -20,5 +20,4 @@ public class UserController {
 	public Boolean getAuthStatus() {
 		return true;
 	}
-
 }
