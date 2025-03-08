@@ -1,17 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {Routing} from './routing/routing.module';
+import { Routing } from './routing/routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 @NgModule({
-  declarations: [
-      AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     Routing,
     BrowserModule,
@@ -19,16 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterOutlet,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-],
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
-
-
-
-
-
-
-
+export class AppModule {}
