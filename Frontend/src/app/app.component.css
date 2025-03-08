@@ -1,32 +1,32 @@
-.wrapper{
-    margin: auto;
-    max-width: 1280px;
+.wrapper {
+  margin: auto;
+  max-width: 1280px;
 }
 
-.nav-filter{
-    background-color: ;
+.nav-filter {
+  background-color: transparent;
 }
 
-.navbar{
-    border-bottom: 1px solid #e9e9e9;
-    width: 100%;
-   display: block;
-   background-color: black;
+.navbar {
+  border-bottom: 1px solid #e9e9e9;
+  width: 100%;
+  display: block;
+  background-color: black;
 }
 
-.nav-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1280px;
-    margin:auto;
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: auto;
 }
 
-.nav-btn-container button{
-    margin-inline: 5px;
+.nav-btn-container button {
+  margin-inline: 5px;
 }
 
-.logo{
-    height: 24px;
-    margin-left: 5px;
+.logo {
+  height: 24px;
+  margin-left: 5px;
 }

@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from '../home/home.component';
-import { SigninComponent } from '../signin/signin.component';
-import { RegisterComponent } from '../register/register.component';
-import { AdminpanelComponent } from '../adminpanel/adminpanel.component';
-import { ManageOffersComponent } from '../manage-offers/manage-offers.component';
-import { AccountSettingsComponent } from '../account-settings/account-settings.component';
-import { AuthGuard } from '../auth.guard';
-import { CreateJobOfferComponent } from '../create-job-offer/create-job-offer.component';
-import { JobOfferDetailsComponent } from '../job-offer-details/job-offer-details.component';
-
+import { HomeComponent } from '../components/home/home.component';
+import { SigninComponent } from '../components/signin/signin.component';
+import { AdminpanelComponent } from '../components/adminpanel/adminpanel.component';
+import { AccountSettingsComponent } from '../components/account-settings/account-settings.component';
+import { AuthGuard } from '../guards/auth.guard';
+import { RegisterComponent } from '../components/register/register.component';
+import { JobOfferDetailsComponent } from '../components/job-offer-details/job-offer-details.component';
+import { ManageOffersComponent } from '../components/manage-offers/manage-offers.component';
+import { CreateJobOfferComponent } from '../components/create-job-offer/create-job-offer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch : 'full' },
@@ -25,7 +24,6 @@ const routes: Routes = [
     ]
   }
 ];
-
 
 @NgModule({
   declarations: [],
