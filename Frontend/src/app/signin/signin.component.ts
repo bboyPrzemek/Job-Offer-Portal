@@ -26,6 +26,7 @@ export class SigninComponent {
 
     this.loginService.login(params.toString()).subscribe(response=>{
       if (response.status == 200){
+        this.loginService.getUserInfo().subscribe();
         this.router.navigate(["/"]);
       }
     });

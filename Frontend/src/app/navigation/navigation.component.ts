@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { UserService } from '../user.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'navigation',
@@ -10,18 +10,20 @@ import { UserService } from '../user.service';
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'
 })
-export class NavigationComponent implements OnInit{
+export class NavigationComponent implements OnInit {
 
-  constructor(private userService : UserService){}
+  constructor(private loginService : LoginService) {}
 
-  username : String = '';
-  photo : String = '/assets/images/person.jpeg';
-  authenticated : Boolean = false;
+  username: string = '';
+  photo: string = '/assets/images/person.jpeg';
+  authenticated: boolean = false;
 
-  ngOnInit(){
-    this.userService.getUserInfo().subscribe(result =>{
-      this.authenticated = true;
-      this.username = result.displayName;
-    })
+  ngOnInit() {
+    this.loginService.user$.subscribe(user=>{
+      if (user){
+        this.username = user.displayName;
+        this.authenticated = true;
+      }
+    });
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -10,12 +10,12 @@ import { UserService } from '../user.service';
 })
 export class AccountSettingsComponent implements OnInit{
 
-  constructor(private userService :  UserService){}
+  constructor(private loginService :  LoginService){}
 
   userInfo : any = {};
 
   ngOnInit() {
-      this.userService.getUserInfo().subscribe(result =>{
+      this.loginService.getUserInfo().subscribe(result =>{
           this.userInfo = result;
       })
   }

@@ -15,9 +15,4 @@ public class UserController {
 	public UserDao userDetails() {
 		return userService.getUserDetails();
 	}
-	
-	@GetMapping("/status")
-	public Boolean getAuthStatus() {
-		return true;
-	}
 }

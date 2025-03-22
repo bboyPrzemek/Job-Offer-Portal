@@ -13,15 +13,15 @@ import { JobOfferDetailsComponent } from '../job-offer-details/job-offer-details
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch : 'full' },
-  { path: 'login', component : SigninComponent },
-  { path : 'register', component : RegisterComponent },
-  { path: 'offer/:id', component : JobOfferDetailsComponent},
-  {path: 'admin', component : AdminpanelComponent , canActivate : [AuthGuard],
+  { path: '', component: HomeComponent, pathMatch : 'full', canActivate: [AuthGuard], data: { requiresAuth: false}},
+  { path: 'login', component : SigninComponent, canActivate: [AuthGuard], data: { requiresAuth: false}},
+  { path : 'register', component : RegisterComponent, canActivate: [AuthGuard], data: { requiresAuth: false}},
+  { path: 'offer/:id', component : JobOfferDetailsComponent , canActivate: [AuthGuard], data: { requiresAuth: false}},
+  {path: 'admin', component : AdminpanelComponent , canActivate : [AuthGuard], data: { requiresAuth: true },
     children: [
-      { path: 'manage', component: ManageOffersComponent },
-      { path: 'settings', component: AccountSettingsComponent },
-      { path: 'create', component : CreateJobOfferComponent }
+      { path: 'manage', component: ManageOffersComponent , canActivate : [AuthGuard], data: { requiresAuth: true } },
+      { path: 'settings', component: AccountSettingsComponent,  canActivate : [AuthGuard], data: { requiresAuth: true } },
+      { path: 'create', component : CreateJobOfferComponent,  canActivate : [AuthGuard], data: { requiresAuth: true } }
     ]
   }
 ];
