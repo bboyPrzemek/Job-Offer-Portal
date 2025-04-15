@@ -30,6 +30,7 @@ jobs:
 
       # {4}
       - name: Install dependencies
+        working-directory: Frontend
         run: npm ci
       # {5}
       - name: Run tests
