@@ -11,6 +11,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import com.example.demo.emailSender.ApplyToJobEmail;
+import com.example.demo.emailSender.EmailService;
+import com.example.demo.emailSender.TemplateToDTOMapper;
 import com.example.demo.experience.Experience;
 import com.example.demo.experience.ExperienceService;
 import com.example.demo.location.Location;
@@ -41,6 +45,8 @@ public class JobOfferService {
 	private WorktypeService worktypeService;
 	@Autowired
 	private LocationService locationService;
+	@Autowired
+	private EmailService emailService;
 	
 	
 	public List<JobOffer> getJobOffers(){
@@ -103,8 +109,6 @@ public class JobOfferService {
 		Position pos = positionService.searchPositionByName(position);
 		Location loc = locationService.findLocationByCity(location);
 		
-		
-		
 		Long userId = userService.getLoggedUserId();
 		User user = userService.findUserById(userId).get();
 		
@@ -117,7 +121,6 @@ public class JobOfferService {
 		jobOffer.setLocation(loc);
 		jobOffer.setSalaryMax(salaryMax);
 		jobOffer.setSalaryMin(salaryMin);
-	
 		jobOffer.setTitle(title);
 		jobOffer.setDetails(details);
 		
@@ -127,6 +130,13 @@ public class JobOfferService {
 	
 	public void removeJobOffer(){
 		
+	}
+	
+	public void applyToOffer(Long jobId, MultipartFile file) {
+		JobOffer jobOffer = findJobOfferById(jobId);
+		String toEmail = jobOffer.getUser().getEmail();
+		toEmail = "przemorog01@gmail.com";
+		emailService.sendEmailWithAttachment(TemplateToDTOMapper.map(new ApplyToJobEmail(toEmail, file, jobOffer)));
 	}
 	
 	public JobOffer sortCollections(JobOffer jobOffer) {

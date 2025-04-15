@@ -3,6 +3,29 @@
     <div class="wrapper">
       <navigation></navigation>
       <div class="offer-container">
+        <div class="overlay" id="overlay" *ngIf="isOpen"></div>
+        <div class="modal" id="modal" *ngIf="isOpen">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Applying for {{result.title}}</h5>
+              </div>
+              <form #form="ngForm" (ngSubmit)="submit()">
+                <div class="modal-body">
+                  <span class="text-danger" *ngIf="form.submitted && !valid">
+                    {{validationMessages.required}}
+                  </span>
+                  <label for="file">Attach your CV:</label>
+                  <input id="file" type="file" (change)="onChange($event)" name="attachment" required>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="closePopup()">Close</button>
+                  <button type="submit" class="btn btn-primary">Apply</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
         <div class="left-side">
           <div class="title-container">
             <div class="title">
@@ -20,7 +43,7 @@
 
         <div class="right-side">
           <div>
-            <button class="btn btn-info">Apply</button>
+            <button class="btn btn-primary" (click)="showPopup()">Apply</button>
           </div>
           <div class="details-container">
             <div class="detail">
@@ -57,11 +80,11 @@
               </div>
             </div>
             <div class="detail">
-                <span><img src="assets/images/icons/location-ico.svg"></span>
-                <div class="flex">
-                    <div class="detail-title">Location:</div>
-                    <div class="detail-value">{{result.location.city}}</div>
-                </div>
+              <span><img src="assets/images/icons/location-ico.svg"></span>
+              <div class="flex">
+                <div class="detail-title">Location:</div>
+                <div class="detail-value">{{result.location.city}}</div>
+              </div>
             </div>
           </div>
 

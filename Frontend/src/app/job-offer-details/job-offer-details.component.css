@@ -6,6 +6,7 @@
 
 .offer-container{
     display: flex;
+    position: relative;
 }
 
 .left-side{
@@ -67,4 +68,32 @@ button{
 .detail{
     margin-top:10px;
     display: flex;
+}
+
+.modal{
+    position: absolute;
+    height: auto;
+    display: block;
+}
+
+.modal-footer{
+    flex-wrap: nowrap;
+}
+
+label{
+    display: block;
+}
+
+input[type="file"]{
+    margin-top: 25px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
+    display: block;
 }

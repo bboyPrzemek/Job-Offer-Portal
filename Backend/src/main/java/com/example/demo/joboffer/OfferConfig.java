@@ -31,7 +31,7 @@ public class OfferConfig {
 	
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;
-
+	
 	@Bean
 	public CriteriaBuilderFactory createCriteriaBuilderFactory() {
 	    CriteriaBuilderConfiguration config = Criteria.getDefault();

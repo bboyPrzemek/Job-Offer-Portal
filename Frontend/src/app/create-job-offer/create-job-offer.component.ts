@@ -83,10 +83,6 @@ export class CreateJobOfferComponent implements OnInit{
 
   constructor(private jobOfferService: JobOfferService, private toast : ToastrService) { }
 
-
-  showSuccess() {
-    //this.toast.success('Hello world!', 'Toastr fun!');
-  }
   onSubmit(form: NgForm) {
     console.log(form.value)
     this.jobOfferService.createJobOffer(form.value).subscribe(response => {

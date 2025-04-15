@@ -34,6 +34,8 @@ public class SecurityConfig {
 				 .requestMatchers("/login").permitAll()
 				 .requestMatchers("/offer/**").permitAll()
 				 .requestMatchers("/register").permitAll()
+				 .requestMatchers("/apply/**").permitAll()
+				 .requestMatchers("/email/**").permitAll()
 				 .anyRequest().authenticated())
 		 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 	     .csrf(AbstractHttpConfigurer::disable)
