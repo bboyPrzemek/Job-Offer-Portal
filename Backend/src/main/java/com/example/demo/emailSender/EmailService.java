@@ -3,9 +3,11 @@ package com.example.demo.emailSender;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import com.example.demo.exceptions.EmailServiceException;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
@@ -36,6 +38,8 @@ public class EmailService {
 			emailSender.send(message);
 		} catch (MessagingException e) {
 			e.printStackTrace();
+		} catch (MailSendException mse) {
+			throw new EmailServiceException("Service not available");
 		}
 	}
 }

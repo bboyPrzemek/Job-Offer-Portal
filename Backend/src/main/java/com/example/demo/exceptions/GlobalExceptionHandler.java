@@ -13,4 +13,10 @@ public class GlobalExceptionHandler{
     public String handleUserAlreadyExistsException(UserExistsException ex) {
         return ex.getMessage();
     }
+    
+    @ExceptionHandler(EmailServiceException.class)
+    @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
+    public String handleEmailServiceException(EmailServiceException ex) {
+        return ex.getMessage();
+    }
 }
