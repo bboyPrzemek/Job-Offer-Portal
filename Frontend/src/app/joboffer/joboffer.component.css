@@ -1,99 +1,95 @@
-.offer-container{
-    display: flex;
-    justify-content: space-between;
+.offer-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.offer-details-container{
-    display: flex;
-    flex-direction: column;
-    width:100%;
-    height: 130px;
-    padding: 0 50px;
-    justify-content: space-evenly;
+.offer-details-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 130px;
+  padding: 0 50px;
+  justify-content: space-evenly;
 }
 
-.offer-info{
-    display: flex;
-    align-items: center;
+.offer-info {
+  display: flex;
+  align-items: center;
 }
 
-.offer-details{
-    display: flex;
+.offer-details {
+  display: flex;
 }
 
-.offer-title{
-    font-weight: 500;
+.offer-title {
+  font-weight: 500;
 }
 
-.offer-element{
-    border-radius: 5px;
-    padding: 10px;
-    background-color: white;
+.offer-element {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
 }
 
-.offer-element:hover{
-   cursor: pointer;
+.offer-element:hover {
+  cursor: pointer;
 }
 
-.offer-salary{
-    width: 200px;
+.offer-salary {
+  width: 200px;
 }
 
-.m_r-10{
-    margin-right: 20px;
+.m_r-10 {
+  margin-right: 20px;
 }
 
-.m_r-10:last-child{
-    margin-right: 0;
+.m_r-10:last-child {
+  margin-right: 0;
 }
 
-.company-logo{
-    align-self: center;
-    text-align: center;
-    width: 150px;
+.company-logo {
+  align-self: center;
+  text-align: center;
+  width: 150px;
 }
 
-.flex-col{
-    display: flex;
-    flex-direction: column;
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 
-.slash span::after{
-content: "/";
+.slash span::after {
+  content: "/";
 }
 
-.slash span:last-child::after{
-    content: "";
+.slash span:last-child::after {
+  content: "";
 }
 
-.position{
-    background-color: #95deb9;
-    padding: 5px 10px;
-    border-radius: 10px;
+.position {
+  background-color: #95deb9;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
-.worktype{
-    background-color: #b9c7dc;
-    padding: 5px 10px;
-    border-radius: 10px;
+.worktype {
+  background-color: #b9c7dc;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
-.experience{
-    background-color: #f0f0f0;
-    padding: 5px 10px;
-    border-radius: 10px;
+.experience {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
-.location{
-    display: flex;
+.location {
+  display: flex;
 }
 
-.location-ico{
-    height: 15px;
-    align-self: center;
-    margin-right: 2px;
+.location-ico {
+  height: 15px;
+  align-self: center;
+  margin-right: 2px;
 }
-
-
-
-

@@ -1,15 +1,15 @@
-.registration-container{
-    margin-top: 100px;
-    width: 500px;
+.registration-container {
+  margin-top: 100px;
+  width: 500px;
 }
 
-.wrapper{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 input[type=submit] {
-    margin-top:10px;
-    width: 100%;
+  margin-top: 10px;
+  width: 100%;
 }
