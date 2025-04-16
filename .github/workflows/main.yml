@@ -37,4 +37,5 @@ jobs:
       #  run: npm run test:ci
       # {6}
       - name: Build
+        working-directory: Frontend
         run: npm run build
