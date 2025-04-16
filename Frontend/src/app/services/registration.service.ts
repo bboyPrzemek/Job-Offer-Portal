@@ -6,12 +6,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class RegistrationService {
-
-  constructor(private http: HttpClient) {}
   private url = 'http://localhost:8080/register';
 
+  constructor(private http: HttpClient) {}
+
   register(params: any) {
-    return this.http.post < any > (this.url, params, {
+    return this.http.post<any>(this.url, params, {
       responseType: 'text' as 'json'
     })
   }

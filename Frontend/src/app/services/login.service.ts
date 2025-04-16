@@ -8,8 +8,8 @@ import { BehaviorSubject, tap, Observable, of } from 'rxjs';
 
 export class LoginService {
   private url = 'http://localhost:8080/';
-  private userSubject = new BehaviorSubject < any > (this.getUserFromStorage());
-  private loadingSubject = new BehaviorSubject < boolean > (true);
+  private userSubject = new BehaviorSubject <any> (this.getUserFromStorage());
+  private loadingSubject = new BehaviorSubject <boolean> (true);
   user$ = this.userSubject.asObservable();
   loading$ = this.loadingSubject.asObservable();
 
@@ -19,15 +19,15 @@ export class LoginService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
     })
-    return this.http.post < any > (this.url + "login", params, {
+    return this.http.post<any>(this.url + "login", params, {
       headers: headers,
       withCredentials: true,
       observe: "response"
     });
   }
 
-  getUserInfo(): Observable < any > {
-    return this.http.get < any > (this.url + "me", {
+  getUserInfo(): Observable <any> {
+    return this.http.get<any>(this.url + "me", {
       withCredentials: true
     }).pipe(
       tap((user: any) => {
@@ -47,7 +47,7 @@ export class LoginService {
   logout() {
     localStorage.removeItem('user');
     this.userSubject.next(null);
-    return this.http.get < any > (this.url + "logout", {
+    return this.http.get<any>(this.url + "logout", {
       withCredentials: true,
       observe: "response"
     });
