@@ -86,7 +86,7 @@ public class JobOfferRepositoryImpl implements JobOfferRepositoryCustom{
 	
 	public CriteriaBuilder<JobOffer> prepareCriteria(JobOfferSearchCriteria jobOfferSearchCriteria, CriteriaBuilder<JobOffer> criteriaBuilder){
 		if (!StringUtils.isBlank(jobOfferSearchCriteria.getTitle())) {
-			criteriaBuilder  = criteriaBuilder.where("j.title").like(false).expression("'" + jobOfferSearchCriteria.getTitle() + "'").noEscape();
+			criteriaBuilder  = criteriaBuilder.where("j.title").like(false).expression("'%" + jobOfferSearchCriteria.getTitle() + "%'").noEscape();
 		}
 		
 		if (!StringUtils.isBlank(jobOfferSearchCriteria.getCity())) {
