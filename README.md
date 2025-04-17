@@ -8,9 +8,9 @@ Project Assumptions
 
 
 Future improvements:
-- validation for user registration
-- removing / editing job offers
-- confirmaiton email send after the registration
-- notificaiton improvement once account is created
+- Validation for user registration
+- Removing / editing job offers
+- Confirmaiton email send after the registration
+- Notificaiton improvement once account is created
 
 
