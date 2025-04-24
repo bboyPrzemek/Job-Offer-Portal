@@ -1,0 +1,145 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="rogalap1 (generated)" id="1745408072687-1">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="display_name" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-2">
+        <addUniqueConstraint columnNames="email" constraintName="users_email_key" tableName="users"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-3">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="experience_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-4">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="job_offer_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-5">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="position_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-6">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="technology_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-7">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="worktype_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-8">
+        <createTable tableName="experience">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="experience_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-9">
+        <createTable tableName="job_offer">
+            <column name="salary_max" type="FLOAT8"/>
+            <column name="salary_min" type="FLOAT8"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="job_offer_pkey"/>
+            </column>
+            <column name="location_id" type="BIGINT"/>
+            <column name="position_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+            <column name="details" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-10">
+        <createTable tableName="location">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="location_pkey"/>
+            </column>
+            <column name="city" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-11">
+        <createTable tableName="offers_experiences">
+            <column name="experience_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="offers_experiences_pkey"/>
+            </column>
+            <column name="offer_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="offers_experiences_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-12">
+        <createTable tableName="offers_technologies">
+            <column name="offer_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="offers_technologies_pkey"/>
+            </column>
+            <column name="technology_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="offers_technologies_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-13">
+        <createTable tableName="offers_worktypes">
+            <column name="offer_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="offers_worktypes_pkey"/>
+            </column>
+            <column name="worktype_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="offers_worktypes_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-14">
+        <createTable tableName="position">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="position_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-15">
+        <createTable tableName="technology">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="technology_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-16">
+        <createTable tableName="worktype">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="worktype_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-17">
+        <addForeignKeyConstraint baseColumnNames="offer_id" baseTableName="offers_experiences" constraintName="fk2jfd8ekqtgf9niht2ryrt9oho" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="job_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-18">
+        <addForeignKeyConstraint baseColumnNames="offer_id" baseTableName="offers_technologies" constraintName="fk3g7uokop81xbklnoj1a51wog4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="job_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-19">
+        <addForeignKeyConstraint baseColumnNames="worktype_id" baseTableName="offers_worktypes" constraintName="fk6y9lgkkeu9sq4hb8rs4g6ordr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="worktype" validate="true"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-20">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="job_offer" constraintName="fkck7bcv2lb96ndqsauwiabjwls" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-21">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="job_offer" constraintName="fkm5e790inwnk1wifgagu34n0vl" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-22">
+        <addForeignKeyConstraint baseColumnNames="position_id" baseTableName="job_offer" constraintName="fkol2hlh79l0vyo3vijaf3uys8l" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="position" validate="true"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-23">
+        <addForeignKeyConstraint baseColumnNames="experience_id" baseTableName="offers_experiences" constraintName="fkosr0wcfqu7xg7cmdqndnkadvf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="experience" validate="true"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-24">
+        <addForeignKeyConstraint baseColumnNames="offer_id" baseTableName="offers_worktypes" constraintName="fkry6cr1a5wc580b4o1dy5yjm64" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="job_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-25">
+        <addForeignKeyConstraint baseColumnNames="technology_id" baseTableName="offers_technologies" constraintName="fkyu7m2rk2f671et9qbtijd5j8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="technology" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,98 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="rogalap1 (generated)" id="1745408072687-27">
+        <sql>
+        	INSERT INTO location (city) values ('Zielona Góra')
+        </sql>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-28">
+        <sql>
+        	INSERT INTO worktype (Id, name) values ('1', 'Remote'), ('2', 'Office'), ('3','Hybrid')
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-29">
+        <sql>
+        	INSERT INTO position (Id, name) values (nextval('position_seq'), 'Backend'), (nextval('position_seq'), 'Frontend'), (nextval('position_seq'),'FullStack')
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-30">
+        <sql>
+        	INSERT INTO experience (Id, name) values (nextval('experience_seq'), 'Junior'), (nextval('experience_seq'), 'Mid'), (nextval('experience_seq'),'Senior')
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-31">
+        <sql>
+        	INSERT INTO technology (Id, name) values (nextval('technology_seq'), 'Salesforce'), (nextval('technology_seq'),'Java')
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-32">
+        <sql>
+        	INSERT INTO location (city) values ('Koszalin'), ('Warszawa'), ('Poznań'), ('Kraków'), ('Lublin'), ('Wrocław')
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-33">
+        <sql>
+        	INSERT INTO users (email, password, display_name) values ('a', 'b', 'Accenture')
+        </sql>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-34">
+        <sql>
+        	update users set password = '$2a$10$jqrq.cbyVkgKX1lsy6HFCOh2mUtaGOlZUUK.zz.bBZNuSrmM5R7Oa' where display_name = 'Accenture'
+        </sql>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-35">
+        <sql>
+        	INSERT INTO job_offer (id, title, details, salary_min, salary_max, user_id, location_id, position_id) values (nextval('job_offer_seq'), 'Salesforce Developer', 'Poszukiwany SF Developer', 5000, 12000, (SELECT id from users where display_name = 'Accenture'),(SELECT id from location where city = 'Koszalin'),(SELECT id from position where name = 'Fullstack'))
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-36">
+        <sql>
+        	update job_offer set position_id = (SELECT id from position where name = 'FullStack') where
+        	 title = 'Salesforce Developer' and user_id = (SELECT id from users where display_name = 'Accenture')
+        </sql>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-37">
+        <sql>
+        	insert into offers_experiences (offer_id, experience_id) values ((select id from job_offer where title = 'Salesforce Developer'), (select id from experience where name = 'Mid'))
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-38">
+        <sql>
+        	insert into offers_technologies (offer_id, technology_id) values ((select id from job_offer where title = 'Salesforce Developer'), (select id from technology where name = 'Salesforce'))
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-39">
+        <sql>
+        	insert into offers_worktypes (offer_id, worktype_id) values ((select id from job_offer where title = 'Salesforce Developer'), (select id from worktype where name = 'Remote'))
+        </sql>
+    </changeSet>
+    <changeSet author="rogalap1 (generated)" id="1745408072687-41">
+        <sql>
+        INSERT INTO job_offer (id, title, details, salary_min, salary_max, user_id, location_id, position_id) values (nextval('job_offer_seq'), 'Junior Java Developer', 'Poszukiwany Junior Java Developer', 6000, 12000, (SELECT id FROM users WHERE display_name = 'Accenture'),(SELECT id FROM location WHERE city = 'Warszawa'),(SELECT id FROM position WHERE name = 'Backend'));
+        INSERT INTO offers_experiences (offer_id, experience_id) values ((select id FROM job_offer WHERE title = 'Junior Java Developer'),(select id FROM experience WHERE name = 'Junior'));
+        INSERT INTO offers_technologies (offer_id, technology_id) values ((select id FROM job_offer WHERE title = 'Junior Java Developer'),(select id FROM technology WHERE name = 'Java'));
+        INSERT INTO offers_worktypes (offer_id, worktype_id) values ((select id FROM job_offer WHERE title = 'Junior Java Developer'), (select id FROM worktype WHERE name = 'Remote'));
+        </sql>
+    </changeSet>
+       <changeSet author="rogalap1 (generated)" id="1745408072687-42">
+        <sql>
+        INSERT INTO job_offer (id, title, details, salary_min, salary_max, user_id, location_id, position_id) values (nextval('job_offer_seq'), 'Mid Java Developer', 'Poszukiwany Mid Java Developer', 6000, 12000, (SELECT id FROM users WHERE display_name = 'Accenture'),(SELECT id FROM location WHERE city = 'Warszawa'),(SELECT id FROM position WHERE name = 'Backend'));
+        INSERT INTO offers_experiences (offer_id, experience_id) values ((select id FROM job_offer WHERE title = 'Mid Java Developer'),(select id FROM experience WHERE name = 'Mid'));
+        INSERT INTO offers_technologies (offer_id, technology_id) values ((select id FROM job_offer WHERE title = 'Mid Java Developer'),(select id FROM technology WHERE name = 'Java'));
+        INSERT INTO offers_worktypes (offer_id, worktype_id) values ((select id FROM job_offer WHERE title = 'Mid Java Developer'), (select id FROM worktype WHERE name = 'Remote'));
+        </sql>
+    </changeSet>
+     <changeSet author="rogalap1 (generated)" id="1745408072687-43">
+        <sql>
+        INSERT INTO job_offer (id, title, details, salary_min, salary_max, user_id, location_id, position_id) values (nextval('job_offer_seq'), 'Senior SF Developer', 'Poszukiwany Senior SF Developer', 6000, 12000, (SELECT id FROM users WHERE display_name = 'Accenture'),(SELECT id FROM location WHERE city = 'Warszawa'),(SELECT id FROM position WHERE name = 'FullStack'));
+        INSERT INTO offers_experiences (offer_id, experience_id) values ((select id FROM job_offer WHERE title = 'Senior SF Developer'),(select id FROM experience WHERE name = 'Senior'));
+        INSERT INTO offers_technologies (offer_id, technology_id) values ((select id FROM job_offer WHERE title = 'Senior SF Developer'),(select id FROM technology WHERE name = 'Salesforce'));
+        INSERT INTO offers_worktypes (offer_id, worktype_id) values ((select id FROM job_offer WHERE title = 'Senior SF Developer'), (select id FROM worktype WHERE name = 'Office'));
+        </sql>
+    </changeSet>
+      <changeSet author="rogalap1 (generated)" id="1745408072687-44">
+        <sql>
+        update position set name = 'Fullstack' where name = 'FullStack'
+        </sql>
+    </changeSet>
+</databaseChangeLog>
