@@ -12,5 +12,7 @@ Future improvements:
 - Removing / editing job offers
 - Confirmaiton email send after the registration
 - Notificaiton improvement once account is created
+- Implementation of JWT auth
+- SSO
 
 
