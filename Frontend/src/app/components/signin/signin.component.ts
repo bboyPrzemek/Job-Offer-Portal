@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { NavigationComponent } from "../navigation/navigation.component";
+
+declare const google: any;
 
 @Component({
   selector: 'app-signin',
@@ -12,10 +14,11 @@ import { NavigationComponent } from "../navigation/navigation.component";
   styleUrl: './signin.component.css'
 })
 
-export class SigninComponent {
+export class SigninComponent{
 
   username = '';
   password = ''
+
 
   constructor(private loginService: LoginService, private router: Router) {}
 
@@ -30,5 +33,9 @@ export class SigninComponent {
         this.router.navigate(["/"]);
       }
     });
+  }
+
+  signInWithGoogle(){
+    window.location.href = "http://localhost:8080/oauth2/authorization/google";
   }
 }

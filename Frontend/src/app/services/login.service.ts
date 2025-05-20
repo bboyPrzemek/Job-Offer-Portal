@@ -32,11 +32,9 @@ export class LoginService {
     }).pipe(
       tap((user: any) => {
         if (user) {
-          console.log('u1')
           localStorage.setItem('user', JSON.stringify(user));
           this.userSubject.next(user);
         } else {
-          console.log('u2');
           localStorage.removeItem('user');
           this.userSubject.next(null);
         }

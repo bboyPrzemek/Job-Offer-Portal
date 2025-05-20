@@ -12,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDao {
+	private Long userId;
 	private String displayName;
 	private String email;
 	private String logoUrl;
