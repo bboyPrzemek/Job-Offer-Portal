@@ -12,7 +12,7 @@ Project Assumptions
 Future improvements:
 - Validation for user registration
 - Removing / editing job offers
-- Confirmaiton email send after the registration
+- Confirmation email send after the registration
 - Implementation of JWT auth
 - SSO
 
