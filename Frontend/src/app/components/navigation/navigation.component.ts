@@ -23,6 +23,9 @@ export class NavigationComponent implements OnInit {
       if (user) {
         this.username = user.displayName;
         this.authenticated = true;
+        if (user.logoUrl){
+          this.photo = user.logoUrl;
+        }
       }
     });
   }
