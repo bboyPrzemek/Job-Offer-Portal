@@ -7,13 +7,12 @@ Project Assumptions
 - It is possible to search for offers, sort them and filter and paginate the results.
 - User registration / Sign-in mechanism (cookie based), logout
 - Applying for job offer (sending attachement to a job offer owner)
-- SSO
 
 Future improvements:
 - Validation for user registration
 - Removing / editing job offers
 - Confirmation email send after the registration
 - Implementation of JWT auth
-
+- SSO (already implemented)
 
 
